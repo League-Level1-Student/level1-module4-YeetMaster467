@@ -80,12 +80,15 @@ public class Jeopardy implements ActionListener {
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
 		thirdButton = createButton("$600");
 		thirdButton.addActionListener(this);
+		quizPanel.add(thirdButton);
 		
 		fourthButton = createButton("$800");
 		fourthButton.addActionListener(this);
+		quizPanel.add(fourthButton);
 		
 		fithButton = createButton("$1000");
 		fithButton.addActionListener(this);
+		quizPanel.add(fithButton);
 		 /*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -141,7 +144,7 @@ public class Jeopardy implements ActionListener {
 		}
 		
 		if(buttonPressed.equals(fithButton)) {
-			askQuestion("")
+			askQuestion("The common vetch originated from this area.", "Where is Europe?", 1000);
 		}
 		
 		buttonPressed.setText("");
