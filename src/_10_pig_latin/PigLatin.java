@@ -24,17 +24,26 @@ public class PigLatin implements ActionListener{
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(3);
 		frame.pack();
-		
+		button1.addActionListener(this);
+		button2.addActionListener(this);
+		speak.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed = (JButton) e.getSource();
 		
-		if(buttonPressed.equals(button1)) {
+		if(buttonPressed == button1) {
+			String input = input1.getText();
+			input = PigLatinTranslator.translateEnglishToPigLatin(input);
+			input2.setText(input);
+		} else if(buttonPressed == button2) {
 			String input = input2.getText();
-			
+			input = PigLatinTranslator.translatePigLatinToEnglish(input);
+			input1.setText(input);
 		}
+
+		frame.pack();
 	}
 	
 }
