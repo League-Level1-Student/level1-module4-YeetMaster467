@@ -25,11 +25,16 @@ public class SlotMachine implements ActionListener {
 	JButton spin = new JButton("SPIN!");
 	Random r = new Random();
 	int num;
+	int s1;
+	int s2;
+	int s3;
 
 	public void showWindow() {
-		slot1 = setSlotImage();
-		slot2 = setSlotImage();
-		slot3 = setSlotImage();
+		frame = new JFrame();
+		panel = new JPanel();
+		slot1 = setSlotImage(0);
+		slot2 = setSlotImage(1);
+		slot3 = setSlotImage(2);
 		panel.setLayout(new GridLayout(2, 3));
 		panel.add(slot1);
 		panel.add(slot2);
@@ -46,18 +51,26 @@ public class SlotMachine implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		frame.dispose();
-		panel = new JPanel();
-		slot1 = setSlotImage();
-		slot2 = setSlotImage();
-		slot3 = setSlotImage();
-		if (slot1.equals(slot2) && slot2.equals(slot3) && slot3.equals(slot1)) {
+		showWindow();
+		
+		if (s1 == s2 && s2 == s3 && s3 == s1) {
 			JOptionPane.showMessageDialog(null, "YOU WIN!!");
 		}
 	}
 
-	private JLabel setSlotImage() {
+	private JLabel setSlotImage(int slot) {
 		JLabel input = null;
 		num = r.nextInt(3);
+		switch (slot) {
+		case 0:
+			s1 = num;
+			break;
+		case 1:
+			s2 = num;
+			break;
+		case 2:
+			s3 = num;
+		}
 		try {
 			switch (num) {
 			case 0:
